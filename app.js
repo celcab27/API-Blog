@@ -4,12 +4,12 @@ const routes = require('./src/routes');
 
 const app = express();
 
+app.use(cors());
+app.use(express.json());
+
 app.use('/', routes);
 
 require('./src/db');
-
-app.use(cors());
-app.use(express.json());
 
 app.listen(5500, () =>
 {

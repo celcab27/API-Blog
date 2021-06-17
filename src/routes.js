@@ -1,9 +1,9 @@
 const routes = require('express').Router();
-const { getPosts  } = require('./controllers/post');
+const { getPosts, postAPost  } = require('./controllers/post');
 
 routes.get('/api/posts', getPosts );
-routes.get('/api/posts/:post', );
-
+routes.get('/api/posts/:post', postAPost );
+routes.post('/api/posts', postAPost)
 
 
 
