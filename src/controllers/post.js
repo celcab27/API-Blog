@@ -3,12 +3,13 @@ const {Post} = require('./../db');
 module.exports = {
     async getPosts (req, res)
     {
-        const posts = await Post.findAll(
+        var posts = await Post.findAll(
             {
-                attributes: ['id', 'title', 'category']
+                attributes: ['id', 'title', 'image', 'category', 'creationDate']
             }
         );
-
+        
+        posts = posts.sort((a, b) => b.creationDate > a.creationDate);
         res.json(posts);
     },
 
